@@ -1,0 +1,18 @@
+/* Navigation */
+.navbar li.nav-item div.login-container {
+	float: right !important; /* fuckin css wont float right */
+}
+
+/* Footer */
+.footer-padding {
+	padding-bottom: 60px;
+}
+
+.footer {
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+	height: 80px;
+	background-color: #696464;
+}
