@@ -4,13 +4,15 @@ const mongoose = require('mongoose');
 
 // import schemas
 
-// const db = ''; // db connection string
+const db = 'mongodb+srv://admin-jaron:testingtesting666@cluster0-fvqnq.mongodb.net/test?retryWrites=true&w=majority';
 
-// mongoose.Promise = global.Promise;
-// mongoose.connect(db, err => {
-//     if (err) {
-//         console.log('Error connecting to the database');
-// });
+mongoose.connect( db, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true 
+    }).then(() => {
+    console.log('Db connection successful');
+    })
+    .catch(err => console.log(err));
 
 router.get('/', (req, res, next) => {
     console.log('Requesting home page');
