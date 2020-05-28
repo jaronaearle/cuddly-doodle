@@ -7,7 +7,7 @@ const userSchema = new Schema({
         required: [true, 'User must have a name']
     },
     password: {
-        type: string,
+        type: String,
         required: [true, 'User must have a password']
     },
     ticks: []

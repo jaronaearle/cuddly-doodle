@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 
-// import schemas
+const User = require('../models/user');
+
+const auth = require('../../middleware/auth');
 
 const db = 'mongodb+srv://admin-jaron:testingtesting666@cluster0-fvqnq.mongodb.net/test?retryWrites=true&w=majority';
 
@@ -17,6 +19,17 @@ mongoose.connect( db, {
 router.get('/', (req, res, next) => {
     console.log('Requesting home page');
     res.send('surprise mutha fucka\'');
+});
+
+router.get('/me', auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id);
+        res.json(user);
+    }  catch (e) {
+        res.send({
+            message: 'Error finding user'
+        });
+    }
 });
 
 router.get('*', (req, res, next) => {
